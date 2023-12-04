@@ -54,7 +54,7 @@ GPIO.setup(echo_pin1, GPIO.IN)
 GPIO.setup(echo_pin2, GPIO.IN)
 
 window_size = 3
-threshold = 50
+threshold = 80
 last = None
 current = None
 
@@ -155,7 +155,7 @@ try:
                 print("Entry")
                 message = "ID2023-ENTRY"
                 publish_to_mqtt(message)
-                logging.info("Entry - Sensor 1")
+                logging.info("Entry - Sensor 1 Current: {current} and Last: {last}")
             else:
                 last = current
 
@@ -165,7 +165,7 @@ try:
                 print("Exit")
                 message = "ID2023-EXIT"
                 publish_to_mqtt(message)
-                logging.info("Exit - Sensor 2")
+                logging.info("Entry - Sensor 2 Current: {current} and Last: {last}")
             else:
                 last = current
 
