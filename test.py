@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+from statistics import median
 GPIO.setmode(GPIO.BCM)
 
 # Trigger pins for both sensors
