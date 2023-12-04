@@ -78,6 +78,9 @@ def mqtt_publish_worker():
                 message = message_queue.get()
                 client.publish(topic, message)
                 print("Published:", message)
+                
+                if message_queue.empty():
+                    break
         time.sleep(2)  
 
 def median_filter(data, window_size):
