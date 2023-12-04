@@ -4,7 +4,7 @@ import time
 # HiveMQ Test Server details
 broker_address = "broker.hivemq.com"
 port = 1883
-topic = "ASPSensorData/"
+topic = "/ASPSensorData"
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -32,7 +32,7 @@ client.loop_start()
 try:
 
     while True:
-        message = "ID204561-ADD"
+        message = "ID2023-ADD"
         client.publish(topic, message)
         time.sleep(4)
 
