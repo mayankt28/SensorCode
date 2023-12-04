@@ -143,8 +143,8 @@ try:
     mqtt_publish_worker_thread.start()
 
     while True:
-        sensorOneDatas = [get_distance(trigger_pin1, echo_pin1) for _ in range(10)]
-        sensorTwoDatas = [get_distance(trigger_pin2, echo_pin2) for _ in range(10)]
+        sensorOneDatas = [get_distance(trigger_pin1, echo_pin1) for _ in range(5)]
+        sensorTwoDatas = [get_distance(trigger_pin2, echo_pin2) for _ in range(5)]
 
         sensorOne = median_filter(sensorOneDatas, window_size)[0]
         sensorTwo = median_filter(sensorTwoDatas, window_size)[0]
