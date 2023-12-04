@@ -45,6 +45,14 @@ trigger_pin2 = 27
 echo_pin1 = 6
 echo_pin2 = 23
 
+# Set trigger pins as output
+GPIO.setup(trigger_pin1, GPIO.OUT)
+GPIO.setup(trigger_pin2, GPIO.OUT)
+
+# Set echo pins as input
+GPIO.setup(echo_pin1, GPIO.IN)
+GPIO.setup(echo_pin2, GPIO.IN)
+
 window_size = 3
 threshold = 50
 last = None
