@@ -153,10 +153,12 @@ try:
         if sensorOne < threshold:
             print("Sensor 1 Triggered: ", sensorOne)
             sequence += '1'
+            print("Seq: ", sequence)
 
         if sensorTwo < threshold:
             print("Sensor 2 Triggered: ", sensorTwo)
             sequence += '2'
+            print("Seq: ", sequence)
 
         if len(sequence) == 2:
 
@@ -178,6 +180,10 @@ try:
                 print("Invalid Sequence: ", sequence)
                 logging.info("Invalid Sequence")
                 sequence = ""
+
+        elif len(sequence) > 2:
+            sequence = ""
+
         time.sleep(0.5)
 
             
