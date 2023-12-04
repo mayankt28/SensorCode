@@ -186,7 +186,6 @@ try:
         elif len(sequence) > 2:
             sequence = ""
 
-        time.sleep(0.5)
 
             
 
