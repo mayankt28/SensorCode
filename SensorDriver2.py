@@ -150,15 +150,17 @@ try:
         sensorOne = median_filter(sensorOneDatas, window_size)[0]
         sensorTwo = median_filter(sensorTwoDatas, window_size)[0]
 
-        if sensorOne < threshold and sequence[-1] != '1':
-            print("Sensor 1 Triggered: ", sensorOne)
-            sequence += '1'
-            print("Seq: ", sequence)
+        if sensorOne < threshold:
+            if len(sequence) >= 1 and sequence[-1] != '1':
+                print("Sensor 1 Triggered: ", sensorOne)
+                sequence += '1'
+                print("Seq: ", sequence)
 
-        if sensorTwo < threshold and sequence[-1] != '2':
-            print("Sensor 2 Triggered: ", sensorTwo)
-            sequence += '2'
-            print("Seq: ", sequence)
+        if sensorTwo < threshold:
+            if len(sequence) >=n1 and sequence[-1] != '2':
+                print("Sensor 2 Triggered: ", sensorTwo)
+                sequence += '2'
+                print("Seq: ", sequence)
 
         if len(sequence) == 2:
 
