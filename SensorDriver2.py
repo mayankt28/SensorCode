@@ -155,7 +155,7 @@ try:
                 print("Entry")
                 message = "ID2023-ENTRY"
                 publish_to_mqtt(message)
-                logging.info("Entry - Sensor 1 Current: {current} and Last: {last}")
+                logging.info("Entry - Sensor 2 Current:" + current + "and Last:" + last)
             else:
                 last = current
 
@@ -165,7 +165,7 @@ try:
                 print("Exit")
                 message = "ID2023-EXIT"
                 publish_to_mqtt(message)
-                logging.info("Entry - Sensor 2 Current: {current} and Last: {last}")
+                logging.info("Entry - Sensor 2 Current:" + current + "and Last:" + last)
             else:
                 last = current
 
