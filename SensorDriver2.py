@@ -151,6 +151,7 @@ try:
 
         if sensorOne < threshold:
             current = "S1"
+            print("S1 Triggered")
             if last is not None and last != current:
                 print("Entry")
                 message = "ID2023-ENTRY"
@@ -161,6 +162,7 @@ try:
 
         if sensorTwo < threshold:
             current = "S2"
+            print("S2 Triggered")
             if last is not None and last != current:
                 print("Exit")
                 message = "ID2023-EXIT"
@@ -169,7 +171,7 @@ try:
             else:
                 last = current
 
-        time.sleep(0.5)
+        time.sleep(0.2)
 
 except KeyboardInterrupt:
     print("Stopping...")
