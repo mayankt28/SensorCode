@@ -32,7 +32,7 @@ client.loop_start()
 try:
 
     while True:
-        message = "ID2023-ADD"
+        message = "ID2023-ENTRY"
         client.publish(topic, message)
         time.sleep(4)
 
