@@ -96,7 +96,7 @@ try:
         sensorOne = median_filter(sensorOneDatas, window_size)
         sensorTwo = median_filter(sensorTwoDatas, window_size)
 
-        if sensorOne[0] < threshold:
+        if sensorOne < threshold:
             current = "S1"
             if last is not None and last != current:
                 print("Entry")
@@ -106,7 +106,7 @@ try:
             else:
                 last = current
 
-        if sensorTwo[0] < threshold:
+        if sensorTwo < threshold:
             current = "S2"
             if last is not None and last != current:
                 print("Exit")
