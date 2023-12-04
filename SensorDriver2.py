@@ -199,4 +199,4 @@ except Exception as e:
 finally:
     GPIO.cleanup()
     client.disconnect()
-    mqtt_publish_worker_thread.join()
+    #mqtt_publish_worker_thread.join()
