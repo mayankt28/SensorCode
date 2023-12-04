@@ -165,12 +165,14 @@ try:
                 message = "ID2023-ENTRY"
                 publish_to_mqtt(message)
                 logging.info("Entry")
+                sequence = ""
 
             elif sequence == "21":
                 print("Exit Detected")
                 message = "ID2023-EXIT"
                 publish_to_mqtt(message)
                 logging.info("Exit")
+                sequence = ""
 
             else:
                 print("Invalid Sequence: ", sequence)
