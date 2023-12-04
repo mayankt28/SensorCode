@@ -55,8 +55,9 @@ GPIO.setup(echo_pin2, GPIO.IN)
 
 window_size = 3
 threshold = 80
-last = None
-current = None
+
+sequence = ""
+
 
 message_queue = queue.Queue()
 queue_lock = threading.Lock()
@@ -150,28 +151,35 @@ try:
         sensorTwo = median_filter(sensorTwoDatas, window_size)[0]
 
         if sensorOne < threshold:
-            current = "S1"
-            print("S1 Triggered")
-            if last is not None and last != current:
-                print("Entry")
-                message = "ID2023-ENTRY"
-                publish_to_mqtt(message)
-                logging.info("Entry - Sensor 2 Current:" + current + "and Last:" + last)
-            else:
-                last = current
+            print("Sensor 1 Triggered: ", sensorOne)
+            sequence += '1'
 
         if sensorTwo < threshold:
-            current = "S2"
-            print("S2 Triggered")
-            if last is not None and last != current:
-                print("Exit")
+            print("Sensor 2 Triggered: ", sensorTwo)
+            sequence += '2'
+
+        if len(sequence) == 2:
+
+            if sequence == "12":
+                print("Entry Detected")
+                message = "ID2023-ENTRY"
+                publish_to_mqtt(message)
+                logging.info("Entry")
+
+            elif sequence == "21":
+                print("Exit Detected")
                 message = "ID2023-EXIT"
                 publish_to_mqtt(message)
-                logging.info("Entry - Sensor 2 Current:" + current + "and Last:" + last)
-            else:
-                last = current
+                logging.info("Exit")
 
-        time.sleep(0.2)
+            else:
+                print("Invalid Sequence: ", sequence)
+                logging.info("Invalid Sequence")
+                sequence = ""
+        time.sleep(0.5)
+
+            
+
 
 except KeyboardInterrupt:
     print("Stopping...")
