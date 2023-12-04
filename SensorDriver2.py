@@ -157,7 +157,7 @@ try:
                 print("Seq: ", sequence)
 
         if sensorTwo < threshold:
-            if len(sequence) >=n1 and sequence[-1] != '2':
+            if len(sequence) >=1 and sequence[-1] != '2':
                 print("Sensor 2 Triggered: ", sensorTwo)
                 sequence += '2'
                 print("Seq: ", sequence)
