@@ -1,4 +1,3 @@
-from hcsr04sensor import sensor
 from statistics import median
 import paho.mqtt.client as mqtt
 import RPi.GPIO as GPIO
